@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core@4.7.4/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core@4.7.4/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core@4.7.4/css/ionic.bundle.css"/>
+    <title>Budget Planner</title>
+</head>
+<body>
+    <ion-app>
+        <ion-header>
+            <ion-toolbar color="primary">
+                <ion-title>Planificador de Gastos</ion-title><!--Header title-->
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-grid>
+                <ion-row>
+                    <!-- First Column with Income Stuff -->
+                    <ion-col size-md="3" offset-md="2">
+                        <ion-card>
+                            <ion-card-header>
+                                <ion-card-title>Nuevo Ingreso</ion-card-title> <!--Incomes title-->
+                            </ion-card-header>
+                                <ion-card-content>
+                                    <ion-item>
+                                            <ion-label position="floating">Concepto</ion-label>
+                                            <ion-input type="text" id="input-reason-in"></ion-input>
+                                    </ion-item>
+                                    <ion-item>
+                                            <ion-label position="floating">Cantidad</ion-label>
+                                            <ion-input type="number" id="input-amount-in"></ion-input>
+                                    </ion-item>
+                                    <div margin-vertical text-right>
+                                        <ion-button fill="outline" color="danger" id="btn-cancel-in">
+                                            <ion-icon slot="start" name="close"></ion-icon>Borrar</ion-button>
+                                        <ion-button fill="outline" id="btn-confirm-in">
+                                            <ion-icon slot="start" name="add"></ion-icon>Añade Ingreso</ion-button>
+                                    </div>
+                                </ion-card-content>
+                        </ion-card>
+                    </ion-col>
+                    <!-- Second Column with Expenses Stuff -->
+                    <ion-col size-md="3" offset-md="1">
+                            <ion-card>
+                                <ion-card-header>
+                                    <ion-card-title>Nuevo Gasto</ion-card-title> <!--Expenses title-->
+                                </ion-card-header>
+                                    <ion-card-content>
+                                        <ion-item>
+                                                <ion-label position="floating">Concepto</ion-label> 
+                                                <ion-input type="text" id="input-reason-out"></ion-input>
+                                        </ion-item>
+                                        <ion-item>
+                                                <ion-label position="floating">Cantidad</ion-label>
+                                                <ion-input type="number" id="input-amount-out"></ion-input>
+                                        </ion-item>
+                                        <div margin-vertical text-right>
+                                            <ion-button fill="outline" color="danger" id="btn-cancel-out">
+                                                <ion-icon slot="start" name="close"></ion-icon>Borrar</ion-button>
+                                            <ion-button fill="outline" id="btn-confirm-out">
+                                                <ion-icon slot="start" name="add"></ion-icon>Añade Gasto</ion-button>
+                                        </div>
+                                    </ion-card-content>
+                            </ion-card>
+                        </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size-md=3 offset-md="2">
+                        <ion-list id="incomes-list"></ion-list> <!--Income that we introduce will appear here-->
+                    </ion-col>
+                    <ion-col size-md="3" offset-md="1">
+                        <ion-list id="expenses-list"></ion-list> <!--Expenses that we introduce will appear here-->
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size-md="3" offset-md="2">
+                        <p margin>Ingresos totales: <span id="total-incomes"></span></p> <!--Adition of incomes-->
+                    </ion-col>
+                    <ion-col size-md="3" offset-md="1">
+                        <p margin>Gastos totales: <span id="total-expenses"></span></p> <!--Adition of expenses-->
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-2 offset="5">
+                        <p>Balance Final: <span id="final-balance"><strong></strong></span></p> <!--Final balance-->
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-content>
+        <ion-alert-controller>
+
+        </ion-alert-controller>
+    </ion-app>
+    <script src="BudgetPlanner.js"></script>
+</body>
+</html>
